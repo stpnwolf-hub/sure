@@ -53,7 +53,7 @@ services:
     labels:
       - "coolify.managed=true"
       - "coolify.proxy.fqdn=https://sure.cnvrg.fr"
-      - "coolify.proxy.port=3001"
+      - "coolify.proxy.port=3000"
     environment:
       <<: *rails_env
     depends_on:
