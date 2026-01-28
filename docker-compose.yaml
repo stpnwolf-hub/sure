@@ -49,9 +49,11 @@ services:
     image: ghcr.io/we-promise/sure:stable
     volumes:
       - app-storage:/rails/storage
-    ports:
-      - ${PORT:-3000}:3000
     restart: unless-stopped
+    labels:
+      - "coolify.managed=true"
+      - "coolify.proxy.fqdn=https://sure.cnvrg.fr"
+      - "coolify.proxy.port=3001"
     environment:
       <<: *rails_env
     depends_on:
@@ -131,6 +133,7 @@ volumes:
   app-storage:
   postgres-data:
   redis-data:
+
 
 networks:
   sure_net:
